@@ -22,8 +22,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/cv1"
             android:layout_weight="1"
-            android:backgroundTint="@color/colorPrimary"
-            android:textColor="@android:color/white"
             android:onClick="esavingsButtonClick"
             card_view:cardCornerRadius="10dp" />
 
