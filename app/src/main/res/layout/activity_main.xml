@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="pw.adithya.jammbanking.MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:padding="5dp">
+
+        <Button
+            android:text="BALANCE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/balanceButton"
+            android:layout_weight="1"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/colorPrimary"
+            android:onClick="balanceButtonClick"/>
+
+        <Button
+            android:text="TRANSACTIONS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/transactionsButton"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@android:color/white"
+            android:onClick="transactionsButtonClick" />
+
+        <Button
+            android:text="TRANSFER FUNDS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/transferButton"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@android:color/white"
+            android:onClick="transferButtonClick" />
+
+        <Button
+            android:text="CARD SERVICES"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cardButton"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@android:color/white"
+            android:onClick="cardButtonClick" />
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
