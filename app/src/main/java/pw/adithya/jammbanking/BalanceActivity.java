@@ -29,8 +29,32 @@ public class BalanceActivity extends Activity {
             @Override
             public void onInit(int status) {
                 tts.setLanguage(Locale.US);
-                tts.setSpeechRate((float)0.8);
+                tts.setSpeechRate((float)0.7);
                 tts.speak("To check your balance top on one of the three buttons below, Tap on the back button at the bottom left of the screen to go back to the main menu.", TextToSpeech.QUEUE_FLUSH, null);
+            }
+        });
+
+        findViewById(R.id.esavingsButton).setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                esavingsButtonClick(findViewById(R.id.esavingsButton));
+                return true;
+            }
+        });
+
+        findViewById(R.id.savingsPlusButton).setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                savingsPlusButtonClick(findViewById(R.id.savingsPlusButton));
+                return true;
+            }
+        });
+
+        findViewById(R.id.currentButton).setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                currentButtonClick(findViewById(R.id.currentButton));
+                return true;
             }
         });
     }

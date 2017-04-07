@@ -23,14 +23,13 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         aB = getActionBar();
-        aB.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3F51B5")));
         aB.setTitle("JAM mBanking");
 
         tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
                 tts.setLanguage(Locale.US);
-                tts.setSpeechRate((float)0.8);
+                tts.setSpeechRate((float)0.7);
                 tts.speak("Welcome to JAM  m banking. You are on the main screen and there are 4 buttons arranged from the top to the bottom. The 4 buttons are balance, transactions, transfer funds and card services. Tap on the desired button or press and hold each button for further audio guidance", TextToSpeech.QUEUE_FLUSH, null);
             }
         });
