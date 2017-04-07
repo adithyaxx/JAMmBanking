@@ -30,7 +30,7 @@ public class BalanceActivity extends Activity {
             public void onInit(int status) {
                 tts.setLanguage(Locale.US);
                 tts.setSpeechRate((float)0.7);
-                tts.speak("To check your balance top on one of the three buttons below, Tap on the back button at the bottom left of the screen to go back to the main menu.", TextToSpeech.QUEUE_FLUSH, null);
+                tts.speak("To check your balance top on one of the three buttons below. Tap on the back button at the bottom left of the screen to go back to the main menu.", TextToSpeech.QUEUE_FLUSH, null);
             }
         });
 
@@ -82,5 +82,11 @@ public class BalanceActivity extends Activity {
         if(tts != null){
             tts.shutdown();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        tts.stop();
+        super.onBackPressed();
     }
 }

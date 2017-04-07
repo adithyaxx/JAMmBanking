@@ -4,8 +4,6 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
@@ -30,7 +28,7 @@ public class MainActivity extends Activity {
             public void onInit(int status) {
                 tts.setLanguage(Locale.US);
                 tts.setSpeechRate((float)0.7);
-                tts.speak("Welcome to JAM  m banking. You are on the main screen and there are 4 buttons arranged from the top to the bottom. The 4 buttons are balance, transactions, transfer funds and card services. Tap on the desired button or press and hold each button for further audio guidance", TextToSpeech.QUEUE_FLUSH, null);
+                tts.speak("Welcome to J A M m banking. You are on the main screen and there are 4 buttons arranged from the top to the bottom. The 4 buttons are balance, transactions, transfer funds and card services. Tap on the desired button or press and hold each button for further audio guidance", TextToSpeech.QUEUE_FLUSH, null);
             }
         });
 
@@ -69,6 +67,7 @@ public class MainActivity extends Activity {
 
     public void balanceButtonClick(View view)
     {
+        tts.shutdown();
         Intent i = new Intent(MainActivity.this, BalanceActivity.class);
         Bundle bndlanimation = ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.slide_in_right, R.anim.slide_out_left).toBundle();
         startActivity(i, bndlanimation);
@@ -76,6 +75,7 @@ public class MainActivity extends Activity {
 
     public void transactionsButtonClick(View view)
     {
+        tts.shutdown();
         Intent i = new Intent(MainActivity.this, TransactionsActivity.class);
         Bundle bndlanimation = ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.slide_in_right, R.anim.slide_out_left).toBundle();
         startActivity(i, bndlanimation);
@@ -83,6 +83,7 @@ public class MainActivity extends Activity {
 
     public void transferButtonClick(View view)
     {
+        tts.shutdown();
         Intent i = new Intent(MainActivity.this, TransferActivity.class);
         Bundle bndlanimation = ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.slide_in_right, R.anim.slide_out_left).toBundle();
         startActivity(i, bndlanimation);
@@ -90,6 +91,7 @@ public class MainActivity extends Activity {
 
     public void cardButtonClick(View view)
     {
+        tts.shutdown();
         Intent i = new Intent(MainActivity.this, CardActivity.class);
         Bundle bndlanimation = ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.slide_in_right, R.anim.slide_out_left).toBundle();
         startActivity(i, bndlanimation);
@@ -101,7 +103,23 @@ public class MainActivity extends Activity {
         super.onStop();
 
         if(tts != null){
+            tts.stop();
+        }
+    }
+
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+
+        if(tts != null){
             tts.shutdown();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        tts.stop();
+        super.onBackPressed();
     }
 }
